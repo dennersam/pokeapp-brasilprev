@@ -1,1 +1,25 @@
-<p>poke-list works!</p>
+
+<mat-form-field appearance="standard">
+  <mat-label>Pesquisar...</mat-label>
+  <input matInput placeholder="Nome do Pokemon">
+</mat-form-field>
+
+<div fxLayout="row" fxLayoutAlign="start center">
+  <ng-container *ngFor="let pokemon of pokemons">
+    <mat-card class="pokemon-card"
+      fxFlex="0 1 calc(33.3% - 11px)"
+      fxFlex.lt-md="0 1 calc(50% - 11px)"
+      fxFlex.lt-sm="100%">
+      <img mat-card-image class="imgCard" [src]="pokemon.imgSmall">
+      <mat-card-content>
+        <h3>Name: {{pokemon.name}}</h3>
+        <p>Id: {{pokemon.id}}</p>
+        <p>Types: {{pokemon.types}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary">Details</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>
+

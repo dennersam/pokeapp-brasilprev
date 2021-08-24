@@ -7,20 +7,26 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { PokeDetailsComponent } from './poke-details/poke-details.component';
+import { PokemonService } from './shared/services/pokemon.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     PokeListComponent,
-    PokeDetailsComponent
+    PokeDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [
+    PokemonService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
