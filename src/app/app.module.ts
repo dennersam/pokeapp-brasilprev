@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppRoutingModule } from './app-routing.modules';
 import { MaterialModule } from './material.module';
@@ -8,7 +12,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { PokeDetailsComponent } from './poke-details/poke-details.component';
 import { PokemonService } from './shared/services/pokemon.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule,
+    FlexLayoutModule
 
   ],
   providers: [

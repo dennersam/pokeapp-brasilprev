@@ -10,19 +10,27 @@ import { PokemonService } from './../shared/services/pokemon.service';
 export class PokeListComponent implements OnInit {
 
   pokemons: Pokemon[] = [];
+  page = 0;
+  readonly amountPg = 12;
 
   constructor(
     public pokemonService: PokemonService
   ) { }
 
   ngOnInit(): void {
-    this.getPokemons();
+    this.listPokemon();
   }
 
-  getPokemons(){
-    this.pokemonService.getPokemons().subscribe(
-      cards => { this.pokemons = cards.data;
-    });
+  listPokemon(): void{
+    this.page++;
+    this.pokemonService.getPokemons(this.page, this.amountPg)
+    .subscribe(cards =>
+       this.pokemons = cards.data);
+  }
+
+  goToDetails(){
+    console.log("Denner")
+
   }
 
 }
